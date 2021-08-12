@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+//# COLOR-BASED ----------------------------------------------------
+@mixin mainColor {
+  background-color: #3f3f3f; // use for body background
+}
+
+@mixin lighterMainColor {
+  background-color: #616161; // use for mission statement
+}
+
+@mixin headerColor {
+  background-color: #d36e49;
+}
+
+@mixin darkerHeaderColor {
+  background-color: #8e3414;
+}
+
+//# FONT
+@mixin mainFont {
+  font-family: "Noto Sans JP", sans-serif;
+}
