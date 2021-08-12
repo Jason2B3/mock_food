@@ -16,7 +16,24 @@
   background-color: #8e3414;
 }
 
-//# FONT
+//# FONT ----------------------------------------------------
 @mixin mainFont {
   font-family: "Noto Sans JP", sans-serif;
+}
+//# SIZING
+@mixin standardMargin {
+  margin: 10px;
+}
+@mixin standardFlexContainer {
+  display: flex;
+  justify-content: center;
+}
+@mixin menuWidth {
+  width: 70%;
+}
+@mixin missionWidth {
+  width: 50%;
+}
+@mixin modalWidth {
+  width: 42%;
 }

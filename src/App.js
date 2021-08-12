@@ -1,8 +1,15 @@
+import React from "react";
+import Header from "./components/Header";
+import MenuList from "./components/Menu/MenuList";
+import Mission from "./components/Mission";
+
 function App() {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
+    <>
+      {/* <Header>Let's get started!</Header> */}
+      <Mission></Mission>
+      {/* <Menu></Menu> */}
+    </>
   );
 }
 

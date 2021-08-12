@@ -1,0 +1,5 @@
+@import '../styleAPI.scss';
+
+.container{
+  @include missionWidth;
+}
