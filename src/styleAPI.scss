@@ -21,26 +21,26 @@
   font-family: "Cabin", sans-serif;
 }
 //# MARGINS ----------------------------------------------------
-$thinM: 10px;
-$thickM: 18px;
+$thinM: 18px;
+$thickM: 24px;
 //~ Thin margins defined below ...
 @mixin thinMarginBottom {
   margin-bottom: $thinM;
 }
 @mixin thinMarginSides {
   margin-left: $thinM;
-  margin-left: $thinM;
+  margin-right: $thinM;
 }
 @mixin thinMarginTop {
   margin-top: $thinM;
 }
 //~ Thick margins defined below ...
 @mixin thickMarginBottom {
-  margin-bottom: thickM;
+  margin-bottom: $thickM;
 }
 @mixin thickMarginSides {
-  margin-left: thickM;
-  margin-left: thickM;
+  margin-left: $thickM;
+  margin-right: $thickM;
 }
 @mixin thickMarginTop {
   margin-top: $thickM;
@@ -61,3 +61,10 @@ $thickM: 18px;
 @mixin modalWidth {
   width: 42%;
 }
+
+//# MISC ----------------------------------------------------
+@mixin menuMissionBorderRadius{
+  border-radius: 16px;
+}
+// Menu Top letter size: 18.72px
+// 

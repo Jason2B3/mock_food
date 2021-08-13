@@ -1,18 +1,45 @@
 @import "../styleAPI.scss";
 
 .container {
-  @include missionWidth;
-  @include lighterMainColor;
   display: flex;
   flex-direction: column;
-  
-  p{
-    color: white;
-    
-  }
+  @include missionWidth;
+  @include lighterMainColor;
+  @include menuMissionBorderRadius;
   h2 {
     color: white;
-    
+    font-size: 2rem;
+    font-weight: 800;
+    font-style: bold;
+    text-align: center;
     @include mainFont;
+    @include thinMarginSides;
+    @include thickMarginTop;
+    @include thickMarginBottom;
+  }
+  p:nth-child(2) {
+    color: white;
+    text-align: center;
+    @include thinMarginSides;
+    @include thinMarginBottom;
+  }
+  p:nth-child(3) {
+    color: white;
+    text-align: center;
+    @include thinMarginSides;
+    @include thickMarginBottom;
+  }
+}
+
+//# DESKTOP-FIRST APPROACH: descending mobile zones below
+@media (max-width: 1000px) {
+  .container {
+    width: 60%; // allow more space on mobile
+  }
+}
+
+@media (max-width: 837px) {
+  .container {
+    width: 90%; // allow more space on mobile
   }
 }
