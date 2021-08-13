@@ -71,7 +71,7 @@ $thickM: 24px;
   white-space: pre;
 }
 @mixin linebreakDeativate {
-  content: "&nbsp";
+  content: "";
   white-space: pre;
 }
 // Menu Top letter size: 18.72px
