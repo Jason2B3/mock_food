@@ -4,7 +4,10 @@ import styles from "./Mission.module.scss";
 function Mission() {
   return (
     <section className={styles.container}>
-      <h2>Delicious Food, Delivered to You</h2>
+      <h2>
+        <span id={styles.sh1}>Delicious Food, </span>
+        <span id={styles.sh2}>Delivered to You</span>
+      </h2>
       <p>
         <span id={styles.s1}>
           Choose your favorite meal from our broad selection of available meals

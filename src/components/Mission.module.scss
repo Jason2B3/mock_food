@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  @include missionWidth;
+  width: 50%;
   @include lighterMainColor;
   @include menuMissionBorderRadius;
   h2 {
@@ -29,29 +29,90 @@
     @include thinMarginSides;
     @include thickMarginBottom;
   }
-  
-  #s1::after {
-    @include linebreak;
-    // bottom line should be: "delicious lunch or dinner at home"
-  }
-  #s3::after {
-    @include linebreak;
-    // bottom line should be: "experienced chefs"
-  }
 
+  #s1::after,
+  #s3::after {
+    @include addLinebreak;
+    // adding linebreaks based on where we divided our phrases with span tags
+  }
 }
 
 //# DESKTOP-FIRST APPROACH: descending mobile zones below
 @media (max-width: 1320px) {
- .container{
-  #s1::after {
-    @include linebreakDeativate;
-    // bottom line should be: "delicious lunch or dinner at home"
+  .container {
+    #s1::after,
+    #s3::after {
+      @include removeLinebreak;
+      // looks better when we remove line breaks at this screen size
+    }
   }
-  #s3::after {
-    @include linebreakDeativate;
-    // bottom line should be: "experienced chefs"
-  }
- }
 }
 
+@media (max-width: 967px) {
+  .container {
+    h2 {
+      font-size: 1.4rem;
+      margin: 16px;
+    }
+    p:nth-child(2) {
+      font-size: 0.9rem;
+      margin: 0px 16px 16px 16px;
+    }
+    p:nth-child(3) {
+      font-size: 0.9rem;
+      margin: 0px 16px 16px 16px;
+    }
+  }
+}
+@media (max-width: 714px) {
+  .container {
+    width: 60%;
+    #sh2::before {
+      @include removeLinebreak;
+      // looks better when we remove line breaks at this screen size
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin: 10px;
+    }
+    p:nth-child(2) {
+      font-size: 0.9rem;
+      color: white;
+      text-align: center;
+      margin: 0px 10px 10px 10px;
+    }
+    p:nth-child(3) {
+      font-size: 0.9rem;
+      color: white;
+      text-align: center;
+      margin: 0px 10px 10px 10px;
+    }
+  }
+}
+@media (max-width: 570px) {
+  .container {
+    width: 85%;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+    p:nth-child(2) {
+      font-size: 0.8rem;
+    }
+    p:nth-child(3) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    #sh2::before {
+      @include addLinebreak;
+      // looks better when we remove line breaks at this screen size
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -55,9 +55,7 @@ $thickM: 24px;
 @mixin menuWidth {
   width: 70%;
 }
-@mixin missionWidth {
-  width: 50%;
-}
+
 @mixin modalWidth {
   width: 42%;
 }
@@ -66,11 +64,11 @@ $thickM: 24px;
 @mixin menuMissionBorderRadius {
   border-radius: 16px;
 }
-@mixin linebreak {
+@mixin addLinebreak {
   content: "\a";
   white-space: pre;
 }
-@mixin linebreakDeativate {
+@mixin removeLinebreak {
   content: "";
   white-space: pre;
 }
