@@ -29,17 +29,31 @@
     @include thinMarginSides;
     @include thickMarginBottom;
   }
+  #s1::after {
+    @include linebreak;
+    // bottom line should be: "delicious lunch or dinner at home"
+  }
+  #s3::after {
+    @include linebreak;
+    // bottom line should be: "experienced chefs"
+  }
 }
 
 //# DESKTOP-FIRST APPROACH: descending mobile zones below
-@media (max-width: 1000px) {
-  .container {
-    width: 60%; // allow more space on mobile
+@media (max-width: 1320px) {
+  .container{
+    display: inline-block;
+    white-space: nowrap;
   }
+  #s1::after {
+    white-space: nowrap;
+  }
+  #s3::after {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 1000px) {
 }
 
 @media (max-width: 837px) {
-  .container {
-    width: 90%; // allow more space on mobile
-  }
 }

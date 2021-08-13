@@ -63,8 +63,16 @@ $thickM: 24px;
 }
 
 //# MISC ----------------------------------------------------
-@mixin menuMissionBorderRadius{
+@mixin menuMissionBorderRadius {
   border-radius: 16px;
 }
+@mixin linebreak {
+  content: "\a";
+  white-space: pre;
+}
+@mixin linebreakDeativate {
+  content: "&nbsp";
+  white-space: pre;
+}
 // Menu Top letter size: 18.72px
-// 
+//
