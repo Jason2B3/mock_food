@@ -8,8 +8,8 @@ function App() {
   return (
     <div className={styles.container}>
       {/* <Header>Let's get started!</Header> */}
-      <Mission></Mission>
-      {/* <Menu></Menu> */}
+      {/* <Mission></Mission> */}
+      <MenuList></MenuList>
     </div>
   );
 }
