@@ -3,7 +3,7 @@ import styles from "./Mission.module.scss";
 
 function Mission() {
   return (
-    <section class="container">
+    <section className={styles.container}>
       <h2>Delicious Food, Delivered to You</h2>
       <p>
         Choose your favorite meal from our broad selection of available meals

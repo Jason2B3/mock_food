@@ -1,5 +1,18 @@
-@import '../styleAPI.scss';
+@import "../styleAPI.scss";
 
-.container{
+.container {
   @include missionWidth;
+  @include lighterMainColor;
+  display: flex;
+  flex-direction: column;
+  
+  p{
+    color: white;
+    
+  }
+  h2 {
+    color: white;
+    
+    @include mainFont;
+  }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 //# COLOR-BASED ----------------------------------------------------
 @mixin mainColor {
   background-color: #3f3f3f; // use for body background
@@ -18,12 +18,36 @@
 
 //# FONT ----------------------------------------------------
 @mixin mainFont {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
-//# SIZING
-@mixin standardMargin {
-  margin: 10px;
+//# MARGINS ----------------------------------------------------
+$thinM: 10px;
+$thickM: 18px;
+//~ Thin margins defined below ...
+@mixin thinMarginBottom {
+  margin-bottom: $thinM;
 }
+@mixin thinMarginSides {
+  margin-left: $thinM;
+  margin-left: $thinM;
+}
+@mixin thinMarginTop {
+  margin-top: $thinM;
+}
+//~ Thick margins defined below ...
+@mixin thickMarginBottom {
+  margin-bottom: thickM;
+}
+@mixin thickMarginSides {
+  margin-left: thickM;
+  margin-left: thickM;
+}
+@mixin thickMarginTop {
+  margin-top: $thickM;
+}
+
+//# SIZING ----------------------------------------------------
+
 @mixin standardFlexContainer {
   display: flex;
   justify-content: center;
