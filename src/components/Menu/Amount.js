@@ -6,7 +6,7 @@ function Amount() {
     <form className={styles.form}>
       <label>Amount</label>
       <input type="number" step="1" min="0" max="99"></input>
-      <button type="submit">Add to cart</button>
+      <div type="submit">Add to cart</div>
     </form>
   );
 }

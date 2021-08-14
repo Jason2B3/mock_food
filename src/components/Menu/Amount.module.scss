@@ -9,14 +9,17 @@
     flex: 0.1 1 auto;
     padding: 0px 2px;
   }
-  button {
+  div {
     margin-top: 14px;
     display: block;
-    padding: 5px 6px;
+    padding: 6px;
     border-radius: 14px;
-    margin-left: 17px;
     @include headerColor;
     color:white;
+    text-align: center
+  }
+  div:hover{
+    @include darkerHeaderColor;
   }
 }
 

@@ -11,6 +11,7 @@
     @include mobileBottom;
   }
   .price {
+    color: #8a2b06; //matches navbar color
     font-weight: bold;
     @include mobileSides;
     @include mobileBottom;
