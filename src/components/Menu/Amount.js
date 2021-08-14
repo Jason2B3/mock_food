@@ -3,12 +3,10 @@ import styles from "./Amount.module.scss";
 
 function Amount() {
   return (
-    <form>
+    <form className={styles.form}>
       <label>Amount</label>
-      <input type="number" step="1"></input>
-      <div>
-        <button type="submit">+ Add</button>
-      </div>
+      <input type="number" step="1" min="0" max="99"></input>
+      <button type="submit">Add to cart</button>
     </form>
   );
 }

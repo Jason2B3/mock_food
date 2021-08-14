@@ -1,1 +1,19 @@
 @import "../../styleAPI.scss";
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid rgb(211, 207, 207);
+}
+@media (min-width: 370px) { 
+  .container{
+    padding: 24px;
+  }
+}
+
+@media (min-width: 580px) { 
+  
+}

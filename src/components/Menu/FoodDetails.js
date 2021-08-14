@@ -3,9 +3,9 @@ import styles from "./FoodDetails.module.scss";
 function FoodDetails({ name, descrip, price }) {
   return (
     <div className={styles.details}>
-      <h4>{name}</h4>
-      <p>{descrip}</p>
-      <p>{price}</p>
+      <h4 className={styles.name}>{name}</h4>
+      <p className={styles.descrip}>{descrip}</p>
+      <p className={styles.price}>{price}</p>
     </div>
   );
 }

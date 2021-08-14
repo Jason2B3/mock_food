@@ -1,1 +1,28 @@
 @import "../../styleAPI.scss";
+.details {
+  .name {
+    font-weight: bold;
+    @include mobileMargin;
+    margin-top: 0px;
+  }
+  .descrip {
+    font-style: italic;
+    @include mobileSides;
+    @include mobileBottom;
+  }
+  .price {
+    font-weight: bold;
+    @include mobileSides;
+    @include mobileBottom;
+  }
+}
+
+@media (min-width: 370px) { 
+  .name,.descrip,.price{
+    font-size:18px;
+  }
+}
+
+@media (min-width: 580px) { 
+  
+}

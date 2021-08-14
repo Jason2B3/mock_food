@@ -46,12 +46,24 @@ $thickM: 24px;
   margin-top: $thickM;
 }
 
+//# MOBILE-MARGINS ----------------------------------------------------
+$mobileMargin: 4px;
+@mixin mobileMargin{
+  margin: $mobileMargin;
+}
+@mixin mobileBottom {
+  margin-bottom: $mobileMargin;
+}
+@mixin mobileSides {
+  margin-left: $mobileMargin;
+  margin-right: $mobileMargin;
+}
+@mixin mobileTop {
+  margin-top: $mobileMargin;
+}
+
 //# SIZING ----------------------------------------------------
 
-@mixin standardFlexContainer {
-  display: flex;
-  justify-content: center;
-}
 @mixin menuWidth {
   width: 70%;
 }
@@ -71,4 +83,14 @@ $thickM: 24px;
 @mixin removeLinebreak {
   content: "";
   white-space: pre;
+}
+@mixin rowFlexbox {
+  display:flex;
+  flex-direction: row;
+}
+@mixin columnFlexbox {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

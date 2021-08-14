@@ -1,4 +1,4 @@
 @import "./styleAPI.scss";
-.container{
-@include standardFlexContainer
+.container {
+  @include columnFlexbox;
 }

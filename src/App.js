@@ -8,7 +8,7 @@ function App() {
   return (
     <div className={styles.container}>
       {/* <Header>Let's get started!</Header> */}
-      {/* <Mission></Mission> */}
+      <Mission></Mission>
       <MenuList></MenuList>
     </div>
   );
