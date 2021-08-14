@@ -8,6 +8,7 @@ function App() {
   return (
     <div className={styles.container}>
       <Header></Header>
+      <img className={styles.img} alt="no IMG found" src="https://i.postimg.cc/g0X9vXbN/food-image.jpg"/>
       <Mission></Mission>
       <MenuList></MenuList>
     </div>
