@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 //# COLOR-BASED ----------------------------------------------------
 @mixin mainColor {
-  background-color: #3f3f3f; // use for body background
+  background-color: #383838; // use for body background
 }
 
 @mixin lighterMainColor {
-  background-color: #616161; // use for mission statement
+  background-color: #3d3d3d; // use for mission statement
 }
 
 @mixin headerColor {
-  background-color: #d36e49;
+  background-color: #8a2b06;
 }
 
 @mixin darkerHeaderColor {
-  background-color: #8e3414;
+  background-color: #4d1601;
 }
 
 //# FONT ----------------------------------------------------

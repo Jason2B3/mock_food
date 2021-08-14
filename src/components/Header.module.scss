@@ -1,1 +1,33 @@
-@import '../styleAPI.scss'
+@import "../styleAPI.scss";
+.navbar {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  @include headerColor;
+  color: white;
+  h1 {
+    font-size: 28px;
+  }
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  @include darkerHeaderColor;
+  padding: 14px;
+  border-radius: 28px;
+  img {
+    width: 22px;
+    filter: brightness(0) invert(1);
+  }
+  span {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .yourCart {
+    margin-left: 10px;
+    margin-right: 6px;
+  }
+}

@@ -4,9 +4,11 @@
   flex-direction: column;
   list-style-type: none;
   width: 100%;
-  background: rgb(168, 196, 248);
+  background: white;
   @include menuMissionBorderRadius;
   @include thickMarginTop;
+  margin-bottom: 64px;
+  overflow-x: hidden;
 }
 
 @media (min-width: 580px) {

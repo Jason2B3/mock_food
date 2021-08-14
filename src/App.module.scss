@@ -1,4 +1,9 @@
 @import "./styleAPI.scss";
 .container {
   @include columnFlexbox;
+  @include mainColor;
+  //! Edit to include the background image, but cropped and angled up
+  background-image: url("./components/food_image.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom 50%
 }
