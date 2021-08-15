@@ -4,9 +4,24 @@ export const useCustomHook = () => useContext(CounterContext); // export custom 
 
 function CounterContextProvider(props) {
   const meals = [
-    { name: "Sushi", descrip: "Finest fish and veggies", price: "$22.99" },
-    { name: "Schnitzel", descrip: "A german specialty", price: "$16.50" },
-    { name: "Green Bowl", descrip: "Healthy...and green...", price: "$28.99" },
+    {
+      name: "Sushi",
+      descrip: "Finest fish and veggies",
+      price: "$22.99",
+      orders: 0,
+    },
+    {
+      name: "Schnitzel",
+      descrip: "A german specialty",
+      price: "$16.50",
+      orders: 0,
+    },
+    {
+      name: "Green Bowl",
+      descrip: "Healthy...and green...",
+      price: "$28.99",
+      orders: 0,
+    },
   ];
   const shareThese = { meals };
   return (

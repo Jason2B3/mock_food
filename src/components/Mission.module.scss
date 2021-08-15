@@ -49,8 +49,9 @@
   }
 }
 
-@media (max-width: 967px) {
+@media (max-width: 940px) {
   .container {
+    margin-top: 12vh;
     h2 {
       font-size: 1.4rem;
       margin: 16px;
@@ -68,6 +69,7 @@
 @media (max-width: 714px) {
   .container {
     width: 60%;
+    margin-top: 6vh;
     #sh2::before {
       @include removeLinebreak;
       // looks better when we remove line breaks at this screen size
@@ -90,10 +92,17 @@
     }
   }
 }
+/*
+@media (max-width: 655px) {
+  .container {
+    background-color: #6e6e6e;
+  }
+}
+*/
 @media (max-width: 570px) {
   .container {
     width: 85%;
-
+    margin-top: 2vh;
     h2 {
       font-size: 1.2rem;
     }

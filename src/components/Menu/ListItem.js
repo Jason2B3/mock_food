@@ -6,7 +6,7 @@ function ListItem({ name, descrip, price }) {
   return (
     <li className={styles.container}>
       <FoodDetails name={name} descrip={descrip} price={price} />
-      <Amount />
+      <Amount  name={name} descrip={descrip} price={price}/>
     </li>
   );
 }

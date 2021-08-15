@@ -7,8 +7,8 @@ function MenuList() {
   const { meals } = useCustomHook();
   return (
     <ul className={styles.container}>
-      {meals.map((i, ind) => (
-        <ListItem name={i.name} descrip={i.descrip} price={i.price} key={ind} />
+      {meals.map((i, index) => (
+        <ListItem name={i.name} descrip={i.descrip} price={i.price} key={index} />
       ))}
     </ul>
   );
