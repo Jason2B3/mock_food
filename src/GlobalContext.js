@@ -2,6 +2,41 @@ import { useState, createContext, useContext, useReducer } from "react"; // impo
 const CounterContext = createContext();
 export const useCustomHook = () => useContext(CounterContext); // export custom hook
 
+function CounterContextProvider(props) {
+  //% Track the total number of each dish in the user's cart right now
+  const [orderState, dispatchFn] = useReducer(reducerFn, {
+    Sushi: 0,
+    Schnitzel: 0,
+    "Green Bowl": 0,
+  });
+
+  const shareThese = { meals, dispatchFn, orderState };
+  return (
+    <CounterContext.Provider value={shareThese}>
+      {props.children}
+    </CounterContext.Provider>
+  );
+}
+export default CounterContextProvider;
+//# --------------------------------------------------------------------------
+const meals = [
+  {
+    name: "Sushi",
+    descrip: "Finest fish and veggies",
+    price: "$22.99",
+  },
+  {
+    name: "Schnitzel",
+    descrip: "A german specialty",
+    price: "$16.50",
+  },
+  {
+    name: "Green Bowl",
+    descrip: "Healthy...and green...",
+    price: "$28.99",
+  },
+];
+
 const reducerFn = function (state, action) {
   switch (action.type) {
     case "ADD SUSHI":
@@ -36,38 +71,3 @@ const reducerFn = function (state, action) {
       return state;
   }
 };
-
-function CounterContextProvider(props) {
-  const [orderState, dispatchFn] = useReducer(reducerFn, {
-    Sushi: 0,
-    Schnitzel: 0,
-    "Green Bowl": 0,
-  });
-  const meals = [
-    {
-      name: "Sushi",
-      descrip: "Finest fish and veggies",
-      price: "$22.99",
-      orders: 0,
-    },
-    {
-      name: "Schnitzel",
-      descrip: "A german specialty",
-      price: "$16.50",
-      orders: 0,
-    },
-    {
-      name: "Green Bowl",
-      descrip: "Healthy...and green...",
-      price: "$28.99",
-      orders: 0,
-    },
-  ];
-  const shareThese = { meals, dispatchFn, orderState };
-  return (
-    <CounterContext.Provider value={shareThese}>
-      {props.children}
-    </CounterContext.Provider>
-  );
-}
-export default CounterContextProvider;
