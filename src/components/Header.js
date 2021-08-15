@@ -4,7 +4,7 @@ import { useCustomHook } from "../GlobalContext";
 
 function Header() {
   //% Track the number of cart items based on the meal quantities inside orderState
-  // That's the useReducer state object, which we manage in our Context API file
+  //% That's the useReducer state object, which we manage in our Context API file
   const { orderState } = useCustomHook();
   const precartMealSum = function () {
     let mealsBeforeCart = 0;

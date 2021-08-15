@@ -4,12 +4,13 @@ import ListItem from "./ListItem";
 import { useCustomHook } from "../../GlobalContext";
 
 function MenuList() {
-  const { meals } = useCustomHook();
+  const { meals, orderState } = useCustomHook();
+  
   return (
     <ul className={styles.container}>
-      {meals.map((i, index) => (
-        <ListItem name={i.name} descrip={i.descrip} price={i.price} key={index} />
-      ))}
+      {meals.map((i, index) => {
+        return <ListItem name={i.name} descrip={i.descrip} price={i.price} key={index} />
+      })}
     </ul>
   );
 }

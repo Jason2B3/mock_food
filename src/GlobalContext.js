@@ -6,8 +6,11 @@ function CounterContextProvider(props) {
   //% Track the total number of each dish in the user's cart right now
   const [orderState, dispatchFn] = useReducer(reducerFn, {
     Sushi: 0,
+    // "Sushi price": "$22.99",
     Schnitzel: 0,
+    // "Schnitzel price": "$16.50",
     "Green Bowl": 0,
+    // "Green Bowl price": "$28.99",
   });
 
   const shareThese = { meals, dispatchFn, orderState };
@@ -40,28 +43,28 @@ const meals = [
 const reducerFn = function (state, action) {
   switch (action.type) {
     case "ADD SUSHI":
-      console.log("sushi fired", {
-        ...state,
-        Sushi: state["Sushi"] + Number(action.orderSize),
-      }); 
+      // console.log("sushi fired", {
+      //   ...state,
+      //   Sushi: state["Sushi"] + Number(action.orderSize),
+      // });
       return {
         ...state, //# return initial state then override 1 value
         Sushi: state["Sushi"] + Number(action.orderSize),
       };
     case "ADD SCHNITZEL":
-      console.log("schnit fired", {
-        ...state,
-        Schnitzel: state["Schnitzel"] + Number(action.orderSize),
-      });
+      // console.log("schnit fired", {
+      //   ...state,
+      //   Schnitzel: state["Schnitzel"] + Number(action.orderSize),
+      // });
       return {
         ...state,
         Schnitzel: state["Schnitzel"] + Number(action.orderSize),
       };
     case "ADD GREEN BOWL":
-      console.log("green bowl fired", {
-        ...state,
-        "Green Bowl": state["Green Bowl"] + Number(action.orderSize),
-      }); 
+      // console.log("green bowl fired", {
+      //   ...state,
+      //   "Green Bowl": state["Green Bowl"] + Number(action.orderSize),
+      // });
       return {
         ...state,
         "Green Bowl": state["Green Bowl"] + Number(action.orderSize),
