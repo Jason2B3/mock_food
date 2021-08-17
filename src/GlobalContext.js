@@ -8,8 +8,8 @@ function CounterContextProvider(props) {
     Sushi: 0,
     Schnitzel: 0,
     "Green Bowl": 0,
-  });  
-  
+  });
+
   //# ------------------------------------------------------------
   const shareThese = { meals, dispatchFn, orderState };
   return (
@@ -21,79 +21,47 @@ function CounterContextProvider(props) {
 export default CounterContextProvider;
 // ---------------------------------------------------------
 const meals = {
-  "Sushi":{
+  Sushi: {
     descrip: "Finest fish and veggies",
     price: "$30.00",
   },
-  "Schnitzel":{
+  Schnitzel: {
     descrip: "A german specialty",
     price: "$16.50",
   },
-  "Green Bowl":{
+  "Green Bowl": {
     descrip: "Healthy...and green...",
     price: "$28.00",
-  }
-}
+  },
+};
 
 const orderReducer = function (state, action) {
   switch (action.type) {
-    case "SET MULTI SUSHI":
-      const updatedState1A = {
+    //$ Add multiple orders of food to the cart (when the add to cart button is pressed)
+    case "SET_MULTI":
+      const foodNameA = action.foodName; // decides what food's getting updated
+      const updatedStateA = {
         ...state, //# return initial state then override 1 value
-        Sushi: state["Sushi"] + Number(action.orderSize),
       };
-      return updatedState1A;
-    case "ADD 1 SUSHI":
-      const updatedState1B = {
+      updatedStateA[foodNameA] = state[foodNameA] + Number(action.orderSize);
+      return updatedStateA;
+    //$ Add 1 order of food to the cart (when the + button is pressed)
+    case "ADD_1":
+      const foodNameB = action.foodName; // decides what food's getting updated
+      const updatedStateB = {
         ...state,
-        Sushi: state["Sushi"] + 1,
       };
-      return updatedState1B;
-    case "REMOVE 1 SUSHI":
-      const updatedState1C = {
+      updatedStateB[foodNameB] = state[foodNameB] + 1;
+      return updatedStateB;
+    //$ Remove 1 order of food from the cart (when the - button is pressed)
+    case "REMOVE_1":
+      const foodNameC = action.foodName;
+      const updatedStateC = {
         ...state,
-        Sushi: state["Sushi"] - 1,
       };
-      return updatedState1C;
-    // ----------------------------------
-    case "SET MULTI SCHNITZEL":
-      const updatedState2A = {
-        ...state,
-        Schnitzel: state["Schnitzel"] + Number(action.orderSize),
-      };
-      return updatedState2A;
-    case "ADD 1 SCHNITZEL":
-      const updatedState2B = {
-        ...state,
-        Schnitzel: state["Schnitzel"] + 1,
-      };
-      return updatedState2B;
-    case "REMOVE 1 SCHNITZEL":
-      const updatedState2C = {
-        ...state,
-        Schnitzel: state["Schnitzel"] - 1,
-      };
-      return updatedState2C;
-    // ----------------------------------
-    case "SET MULTI GREEN BOWL":
-      const updatedState3A = {
-        ...state,
-        "Green Bowl": state["Green Bowl"] + Number(action.orderSize),
-      };
-      return updatedState3A;
-    case "ADD 1 GREEN BOWL":
-      const updatedState3B = {
-        ...state,
-        "Green Bowl": state["Green Bowl"] + 1,
-      };
-      return updatedState3B;
-    case "REMOVE 1 GREEN BOWL":
-      const updatedState3C = {
-        ...state,
-        "Green Bowl": state["Green Bowl"] - 1,
-      };
-      return updatedState3C;
-    // ----------------------------------
+      updatedStateC[foodNameC] = state[foodNameC] - 1;
+      return updatedStateC;
+    //$ ——————————————————————————————————————————————————————
     case "CONTRIB TO TOTAL":
       const updateBill = {
         ...state,
@@ -101,9 +69,9 @@ const orderReducer = function (state, action) {
       };
       console.log("cheque please!", updateBill);
       return updateBill;
+    //$ ——————————————————————————————————————————————————————
     default:
       alert("fucked up");
       return state;
   }
 };
-

@@ -14,8 +14,12 @@ function Amount({ name, descrip, price }) {
   const submitHandler = function (e) {
     e.preventDefault();
     if (qty > 0) {
-      dispatchFn({ type: "SET MULTI " + name.toUpperCase(), orderSize: qty }); // contextAPI
-      setQty(0); // reset field
+      dispatchFn({
+        type: `SET_MULTI`,
+        orderSize: qty,
+        foodName: name, // used to select the case in our reducerFN switch statement
+      }); 
+      setQty(0); //! reset field needs rework
     }
   };
   return (

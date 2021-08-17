@@ -42,11 +42,11 @@ function ModalFace() {
       });
     }
   }
-  console.log(containment)
+  console.log(containment);
   //% Calculate the sum of all aTotal's inside the containment array
-  const billTotal= containment.reduce((acc, currVal)=>{
-    return acc + currVal.aTotal
-  },0)
+  const billTotal = containment.reduce((acc, currVal) => {
+    return acc + currVal.aTotal;
+  }, 0);
 
   return (
     <ul className={styles.container}>
