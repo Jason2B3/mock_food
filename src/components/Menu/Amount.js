@@ -18,14 +18,17 @@ function Amount({ name, descrip, price }) {
         type: `SET_MULTI`,
         orderSize: qty,
         foodName: name, // used to select the case in our reducerFN switch statement
-      }); 
-      setQty(0); //! reset field needs rework
+      });
     }
+    console.log(e.target);
+    //! Need to clear the input field of one instance of amount, not all
+    setQty(() => "0");
   };
   return (
     <form className={styles.form}>
       <label>Amount</label>
       <input
+        // className={"input " + name}
         type="number"
         onChange={tickHandler}
         value={qty}
