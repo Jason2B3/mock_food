@@ -14,7 +14,7 @@ function Amount({ name, descrip, price }) {
   const submitHandler = function (e) {
     e.preventDefault();
     if (qty > 0) {
-      dispatchFn({ type: "ADD " + name.toUpperCase(), orderSize: qty }); // contextAPI
+      dispatchFn({ type: "SET MULTI " + name.toUpperCase(), orderSize: qty }); // contextAPI
       setQty(0); // reset field
     }
   };

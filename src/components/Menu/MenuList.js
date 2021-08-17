@@ -5,11 +5,18 @@ import { useCustomHook } from "../../GlobalContext";
 
 function MenuList() {
   const { meals, orderState } = useCustomHook();
-  
+
   return (
     <ul className={styles.container}>
-      {meals.map((i, index) => {
-        return <ListItem name={i.name} descrip={i.descrip} price={i.price} key={index} />
+      {Object.keys(meals).map((key) => {
+        return (
+          <ListItem
+            name={key}
+            descrip={meals[key].descrip}
+            price={meals[key].price}
+            key={key + Math.random()} // being lazy AF here
+          />
+        );
       })}
     </ul>
   );
