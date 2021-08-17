@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import styles from "./ModalFace.module.scss";
 import ModalListItem from "./ModalListItem";
 import { useCustomHook } from "../../GlobalContext";
+import FinalSum from "./FinalSum";
+
 const modalFace_helpers_2B3 = {
   // Rounds numbers to X digits (don't use on exponential values)
   round: function roundNumber(initNum, places) {
@@ -15,20 +17,13 @@ const modalFace_helpers_2B3 = {
 function ModalFace() {
   const { orderState, meals } = useCustomHook();
   //% Clone the orderState object and exclude all KVP's with value 0
-  const nameQtyObject = function () {
-    const modalObj = {};
-    for (let key in orderState) {
-      if (orderState[key] !== 0) modalObj[key] = orderState[key];
-    }
-    return modalObj;
-  };
-  const currentOrder = nameQtyObject(); // {name:Sushi qty:2}
+  const currentOrder = {}; // {name:Sushi qty:2}
+  for (let key in orderState) {
+    if (orderState[key] !== 0) currentOrder[key] = orderState[key];
+  }
 
-  //% Prepare/organize some existing values for the ModalListItem component
-  //% WHEN: we add an entry to the containment field
-  // {name, cost, qty, mealTotal} data on each food we have in-cart
+  //% Prepare data for <ModalListItem>
   const containment = [];
-
   if (currentOrder.length !== 0) {
     for (let key in currentOrder) {
       // Calc name, cost, qty... then shove it into an object to be used as an entry in containment
@@ -47,8 +42,12 @@ function ModalFace() {
       });
     }
   }
+  console.log(containment)
+  //% Calculate the sum of all aTotal's inside the containment array
+  const billTotal= containment.reduce((acc, currVal)=>{
+    return acc + currVal.aTotal
+  },0)
 
-  // Summate all meal costs here then place in the final li
   return (
     <ul className={styles.container}>
       {containment.map((i, ind) => {
@@ -62,10 +61,7 @@ function ModalFace() {
           />
         );
       })}
-      <li>
-        MAKE THIS CONTAIN THE SUMMATION OF ALL MEAL COSTS (but don't show if
-        it's 0
-      </li>
+      <FinalSum billTotal={billTotal}></FinalSum>
     </ul>
   );
 }
