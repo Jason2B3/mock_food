@@ -9,9 +9,11 @@ function CounterContextProvider(props) {
     Schnitzel: 0,
     "Green Bowl": 0,
   });
-
+  const [isModalActivated, setModal] = useState(false);
+  const activateModal = () => setModal(() => true);
+  const deactivateModal = () => setModal(() => false);
   //# ------------------------------------------------------------
-  const shareThese = { meals, dispatchFn, orderState };
+  const shareThese = { meals, dispatchFn, orderState, isModalActivated, activateModal, deactivateModal };
   return (
     <CounterContext.Provider value={shareThese}>
       {props.children}

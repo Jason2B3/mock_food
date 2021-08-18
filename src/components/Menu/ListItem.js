@@ -5,10 +5,10 @@ import Amount from "./Amount";
 function ListItem({ name, descrip, price }) {
   
   return (
-    <li className={styles.container}>
+    <div className={styles.container}>
       <FoodDetails name={name} descrip={descrip} price={price} />
-      <Amount  name={name} descrip={descrip} price={price}/>
-    </li>
+      <Amount  name={name} descrip={descrip} price={price} qty={0}/>
+    </div>
   );
 }
 

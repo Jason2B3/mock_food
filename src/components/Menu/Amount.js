@@ -6,6 +6,7 @@ function Amount({ name, descrip, price }) {
   const { dispatchFn } = useCustomHook();
   //% Make the value of the input field stateful
   const [qty, setQty] = useState("0");
+  console.log("quantity is...", qty)
   const tickHandler = function (e) {
     setQty(e.target.value); // non immediate updating still in effect
   };
@@ -20,9 +21,6 @@ function Amount({ name, descrip, price }) {
         foodName: name, // used to select the case in our reducerFN switch statement
       });
     }
-    console.log(e.target);
-    //! Need to clear the input field of one instance of amount, not all
-    setQty(() => "0");
   };
   return (
     <form className={styles.form}>
