@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
 
-function FinalSum({billTotal}) {
+function FinalSum({ billTotal }) {
   return (
     <div>
-      <p><span>Total Amount</span><span>{billTotal}</span></p>
+      <p>
+        <span>Total Amount: </span>
+        <span>{billTotal}</span>
+      </p>
       <button>Close</button>
       <button>Order</button>
     </div>
-  )
+  );
 }
 
-export default FinalSum
+export default FinalSum;
 // finalVerdict

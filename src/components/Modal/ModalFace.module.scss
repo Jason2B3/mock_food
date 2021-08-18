@@ -1,0 +1,17 @@
+@import "../../styleAPI.scss";
+body {
+  background-color: aliceblue;
+}
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.container {
+  width: 50%;
+  @include menuMissionBorderRadius;
+  background-color: aliceblue;
+  margin-top:400px;
+  margin-left:400px;
+}

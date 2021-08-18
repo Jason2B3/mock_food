@@ -1,0 +1,19 @@
+@import "../../styleAPI.scss";
+.container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  $thickSize: 24px;
+  padding: $thickSize $thickSize 0px $thickSize;
+}
+/*
+.details{
+  h4,span{
+    // place downward margins
+  }
+}
+.masMenos{
+
+}
+*/

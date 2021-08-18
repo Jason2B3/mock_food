@@ -9,18 +9,17 @@ function ModalListItem({ name, cost, qty, aTotal }) {
   const minusHandler = () => dispatchFn({ type: `REMOVE_1`, foodName: name });
   const plusHandler = () => dispatchFn({ type: `ADD_1`, foodName: name });
   return (
-    <>
+    <div className={styles.container}>
       <section className={styles.details}>
         <h4 className={styles.name}>{name}</h4>
-        <p className={styles.cost}>{cost}</p>
-        <p className={styles.qty}>x {qty}</p>
-        <p className={styles.aTotal}>{aTotal}</p>
+        <span className={styles.cost}>{cost}</span>
+        <span className={styles.qty}>x {qty}</span>
       </section>
       <div className={styles.masMenos}>
         <button onClick={minusHandler}>-</button>
         <button onClick={plusHandler}>+</button>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -10,7 +10,7 @@ function App() {
   const { isModalActivated } = useCustomHook();
   return (
     <div className={styles.container}>
-      <Header></Header>
+      <Header/>
       <img
         className={styles.img}
         alt="no IMG found"

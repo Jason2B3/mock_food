@@ -49,20 +49,22 @@ function ModalFace() {
   }, 0);
 
   return (
-    <ul className={styles.container}>
-      {containment.map((i, ind) => {
-        return (
-          <ModalListItem
-            name={i.name}
-            cost={i.cost}
-            qty={i.qty}
-            aTotal={i.aTotal}
-            key={ind}
-          />
-        );
-      })}
-      <FinalSum billTotal={billTotal}></FinalSum>
-    </ul>
+    <section className={styles.overlay}>
+      <div className={styles.container}>
+        {containment.map((i, ind) => {
+          return (
+            <ModalListItem
+              name={i.name}
+              cost={i.cost}
+              qty={i.qty}
+              aTotal={i.aTotal}
+              key={ind}
+            />
+          );
+        })}
+        <FinalSum billTotal={billTotal}></FinalSum>
+      </div>
+    </section>
   );
 }
 
