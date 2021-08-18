@@ -9,9 +9,3 @@ ReactDOM.render(
   </CounterContextProvider>,
   document.getElementById("root")
 );
-
-if(module.hot){
-  module.hot.accept('./App', ()=>{
-    const NextApp= require('./App').defaultReactDOM.render(<NextApp/>,rootEl)
-  })
-}

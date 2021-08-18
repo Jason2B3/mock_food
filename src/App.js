@@ -1,3 +1,4 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
 import Header from "./components/Header";
 import MenuList from "./components/Menu/MenuList";
@@ -10,7 +11,7 @@ function App() {
   const { isModalActivated } = useCustomHook();
   return (
     <div className={styles.container}>
-      <Header/>
+      <Header />
       <img
         className={styles.img}
         alt="no IMG found"
@@ -23,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(App);

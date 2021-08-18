@@ -3,17 +3,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
   $thickSize: 24px;
-  padding: $thickSize $thickSize 0px $thickSize;
+  padding: $thickSize;
+  border-bottom: 1px solid rgb(182, 182, 182);
 }
-/*
-.details{
-  h4,span{
-    // place downward margins
+.details {
+  h4,
+  span {
+    margin-bottom: 8px;
   }
 }
-.masMenos{
-
+.masMenos {
+  button{
+    width: 40px;
+    margin-left: 18px;
+    border-radius:9px;
+    padding:0px 6px;
+    border: 1px solid black;
+  }
 }
-*/

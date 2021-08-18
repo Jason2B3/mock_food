@@ -7,7 +7,7 @@ function MenuList() {
   const { meals, orderState } = useCustomHook();
 
   return (
-    <ul className={styles.container}>
+    <div className={styles.container}>
       {Object.keys(meals).map((key) => {
         return (
           <ListItem
@@ -18,7 +18,7 @@ function MenuList() {
           />
         );
       })}
-    </ul>
+    </div>
   );
 }
 

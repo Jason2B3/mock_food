@@ -4,14 +4,19 @@ body {
 }
 .overlay {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   width: 50%;
+  font-size: 18px;
+  top: 20%;
   @include menuMissionBorderRadius;
   background-color: aliceblue;
-  margin-top:400px;
-  margin-left:400px;
+  position: absolute;
+  margin: auto;
 }

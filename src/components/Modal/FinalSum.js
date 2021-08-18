@@ -1,14 +1,25 @@
 import React from "react";
+import styles from "./FinalSum.module.scss";
+import { useCustomHook } from "../../GlobalContext";
 
 function FinalSum({ billTotal }) {
+  const { deactivateModal } = useCustomHook();
+  const closeHandler = function () {
+    deactivateModal();
+  };
+  const orderHandler = function () {
+    alert("New Features will arrive soon!");
+  };
   return (
-    <div>
+    <div className={styles.container}>
       <p>
         <span>Total Amount: </span>
         <span>{billTotal}</span>
       </p>
-      <button>Close</button>
-      <button>Order</button>
+      <div>
+        <button onClick={closeHandler}>Close</button>
+        <button onClick={orderHandler}>Order</button>
+      </div>
     </div>
   );
 }

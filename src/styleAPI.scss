@@ -48,7 +48,7 @@ $thickM: 24px;
 
 //# MOBILE-MARGINS ----------------------------------------------------
 $mobileMargin: 4px;
-@mixin mobileMargin{
+@mixin mobileMargin {
   margin: $mobileMargin;
 }
 @mixin mobileBottom {
@@ -85,11 +85,11 @@ $mobileMargin: 4px;
   white-space: pre;
 }
 @mixin rowFlexbox {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 @mixin columnFlexbox {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
