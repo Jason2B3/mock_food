@@ -1,0 +1,27 @@
+PUT button
+- Should send data to firebase
+- Change text in Menu section on success
+- Change text in Menu section on failure
+
+
+GET button
+- Should render a loading spinner in the menu section
+- On success, show the menu
+- On fail, render an error message
+- If the firebase database is empty, render a message saying so
+
+DELETE button
+- Should wipe the Menu if it was previously loaded
+- Run the greeting emssage again
+
+
+FILE THAT HAVE ISSUES THAT NEED RESOLVING
+async-operations/ requestFunctions
+reduxToolkit/store-slices/menu.js
+Menu/ MenuList.js
+
+LESSONS
+
+lesson A: useHttp within 1 file
+lesson B: useHttp within 2+ files
+add in the index.js setup portion of Redux toolkit to your notes
