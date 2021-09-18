@@ -94,3 +94,9 @@ $mobileMargin: 4px;
   justify-content: center;
   align-items: center;
 }
+//# ASYNC BUTTONS
+@mixin asyncButtonStyling{
+  padding: 10px;
+  margin: 20px;
+  border-radius: 8px;
+}

@@ -6,7 +6,6 @@ function Amount({ name, descrip, price }) {
   const { dispatchFn } = useCustomHook();
   //% Make the value of the input field stateful
   const [qty, setQty] = useState("0");
-  console.log("quantity is...", qty)
   const tickHandler = function (e) {
     setQty(e.target.value); // non immediate updating still in effect
   };

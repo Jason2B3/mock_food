@@ -1,0 +1,4 @@
+@import "../../styleAPI.scss";
+.btn {
+  @include asyncButtonStyling;
+}
