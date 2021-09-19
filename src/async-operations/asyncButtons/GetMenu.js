@@ -10,34 +10,30 @@ export default function GetMenu() {
   const dispatch = useDispatch();
   // Add extra capabilities to the simple getMenu async function we imported
   const { sendRequest, status, data, error } = useHttp(getMenu, false);
-  // Dispatching async actions from redux store's menu.js 
+  // Dispatching async actions from redux store's menu.js
   // These are dependent on the state values from useHttp
-  useEffect(()=>{
-    async function runAsyncRedux(){
+  useEffect(() => {
+    async function runAsyncRedux() {
       if (status === "pending") {
-        console.log("pending")
         await dispatch(menuActions.pendingMenu());
         return;
       }
-      if (error && status === "completed") {
-        console.log('error encountered')
-        await dispatch(menuActions.failMenu(error)); 
+      if (status === "completed" && error) {
+        await dispatch(menuActions.failMenu(error));
         return;
       }
       if (data === null && status === "completed") {
-        console.log("nothing found")
         await dispatch(menuActions.noMenuDataFound());
         return;
       }
       if (data !== null && status === "completed") {
-        console.log("success!")
         await dispatch(menuActions.successMenu(data));
         return;
       }
     }
-    runAsyncRedux()
-  },[sendRequest, status, data, error])
-  
+    runAsyncRedux();
+  }, [sendRequest, status, data, error]);
+
   return (
     <>
       <button className={styles.btn} onClick={sendRequest}>

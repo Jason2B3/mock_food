@@ -22,6 +22,7 @@ function App() {
   // The Menu section renders diff content depending on these Redux state valurs in menu.js
   const [menuSection, setMenuSection] = useState(undefined);
   useEffect(() => {
+    //# ----------- GET related renders -----------
     if (shouldRender === "greeting") {
       setMenuSection(
         <h2>Send data to Firebase! Then you can display a Menu</h2>
@@ -42,6 +43,13 @@ function App() {
     }
     if (shouldRender === "menu") {
       setMenuSection(<MenuList />);
+    }
+    //# ----------- PUT related renders -----------
+    if (shouldRender === "PUT_success") {
+      setMenuSection(<h2>Successfully sent data to Firebase</h2>);
+    }
+    if (shouldRender === "PUT_failure") {
+      setMenuSection(<h2>{errorMessage}</h2>);
     }
   }, [shouldRender, menuData, errorMessage]);
   return (

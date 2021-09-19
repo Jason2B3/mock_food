@@ -4,6 +4,7 @@ const menuSlice = createSlice({
   name: "menu", // expected built-in KVP
   initialState: { shouldRender: "greeting", data: null, errorMessage: null },
   reducers: {
+    //# -------- GET reducer functions ----------
     clearMenu(state, action) {
       // Use to render a greeting, telling users to send dta to Firebase
       state.shouldRender = "greeting";
@@ -33,6 +34,17 @@ const menuSlice = createSlice({
       state.shouldRender = "GET_errorMessage";
       state.errorMessage = action.payload;
     },
+    //# -------- PUT reducer functions ----------
+    successfulPUT(state,action){
+      state.shouldRender= "PUT_success"
+      state.data = null;
+      state.errorMessage = null;
+    },
+    failedPUT(state,action){
+      state.shouldRender= "PUT_failure"
+      state.data = null;
+      state.errorMessage = null;
+    }
   },
 });
 export const menuActions = menuSlice.actions;

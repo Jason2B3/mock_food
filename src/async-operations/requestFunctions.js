@@ -24,18 +24,17 @@ export async function putMenu() {
     headers: { "Content-Type": "application/json" },
   });
   if (!putData.ok) throw new Error("Sending cart data failed");
-  console.log("requestFunctions_line27", putData);
   return null;
 }
 
 export async function getMenu() {
-  console.log('getting menu!')
+  console.log("getting menu!");
   const pullData = await fetch(firebaseLink);
   if (!pullData.ok)
     throw new Error("Could not retreive meal data from the servers");
   const parsedData = await pullData.json(); // equals null if you fetch nothing
   if (parsedData === null) console.log("There is no menu data on our servers");
-  console.log(parsedData)
+  console.log(parsedData);
   return parsedData;
 }
 
