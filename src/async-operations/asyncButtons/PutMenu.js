@@ -12,12 +12,14 @@ export default function PutMenu() {
   console.log(status, data, error);
   useEffect(() => {
     async function runAsyncRedux() {
-      // We only want success/failure message handling for PUT (no pending spinner)
+      // Want things to render on success and failure only (no pending)
+      //# Failed PUT request
       if (error && status === "completed") {
         console.log("error encountered");
         await dispatch(menuActions.PUT_failure(error));
         return;
       }
+      //# Successful PUT request
       if (error === null && status === "completed") {
         console.log("success!");
         await dispatch(menuActions.PUT_success());

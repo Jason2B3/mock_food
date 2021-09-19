@@ -14,18 +14,22 @@ export default function GetMenu() {
   // These are dependent on the state values from useHttp
   useEffect(() => {
     async function runAsyncRedux() {
+      //# Pending GET request
       if (status === "pending") {
         await dispatch(menuActions.GET_pending());
         return;
       }
+      //# Failed GET request
       if (status === "completed" && error) {
-        await dispatch(menuActions.GET_failure(error));
+        await dispatch(menuActions.GET_failure());
         return;
       }
+      //# Successful GET request but the database is empty
       if (data === null && status === "completed") {
         await dispatch(menuActions.GET_noResults());
         return;
       }
+      //# Successful GET request where we retrieve meal data
       if (data !== null && status === "completed") {
         await dispatch(menuActions.GET_success(data));
         return;

@@ -23,18 +23,15 @@ export async function putMenu() {
     body: JSON.stringify(meals), // the data we're storing
     headers: { "Content-Type": "application/json" },
   });
-  if (!putData.ok) throw new Error("Sending cart data failed");
+  if (!putData.ok) throw new Error();
   return null;
 }
 
 export async function getMenu() {
   console.log("getting menu!");
   const pullData = await fetch(firebaseLink);
-  if (!pullData.ok)
-    throw new Error("Could not retreive meal data from the servers");
+  if (!pullData.ok) throw new Error();
   const parsedData = await pullData.json(); // equals null if you fetch nothing
-  if (parsedData === null) console.log("There is no menu data on our servers");
-  console.log(parsedData);
   return parsedData;
 }
 
@@ -44,6 +41,5 @@ export async function deleteMenu() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify([]),
   });
-  if (!deleteData) throw new Error("Could not erase backend info");
-  console.log("requestFunctions_line46", deleteData);
+  if (!deleteData) throw new Error();
 }

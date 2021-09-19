@@ -12,9 +12,11 @@ export default function DeleteMenu() {
   useEffect(() => {
     async function runAsyncRedux() {
       // Want things to render on success and failure only (no pending)
+      //# Failed DELETE request
       if (status === "completed" && error === null) {
         dispatch(menuActions.DELETE_success());
       }
+      //# Successful DELETE request
       if (status === "completed" && error !== null) {
         dispatch(menuActions.DELETE_failure());
       }

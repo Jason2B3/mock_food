@@ -33,6 +33,6 @@ lesson B: useHttp within 2+ files
 add in the index.js setup portion of Redux toolkit to your notes
 
 LEFTOVER BUGS
-- PUT   GET     PUT
-- GET success   PUT
-
+- PUT   GETsuccess     PUT
+- GETsuccess   PUT
+- Getsuccess DELETE
