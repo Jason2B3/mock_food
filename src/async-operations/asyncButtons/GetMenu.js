@@ -15,19 +15,19 @@ export default function GetMenu() {
   useEffect(() => {
     async function runAsyncRedux() {
       if (status === "pending") {
-        await dispatch(menuActions.pendingMenu());
+        await dispatch(menuActions.GET_pending());
         return;
       }
       if (status === "completed" && error) {
-        await dispatch(menuActions.failMenu(error));
+        await dispatch(menuActions.GET_failure(error));
         return;
       }
       if (data === null && status === "completed") {
-        await dispatch(menuActions.noMenuDataFound());
+        await dispatch(menuActions.GET_noResults());
         return;
       }
       if (data !== null && status === "completed") {
-        await dispatch(menuActions.successMenu(data));
+        await dispatch(menuActions.GET_success(data));
         return;
       }
     }

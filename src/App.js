@@ -17,44 +17,39 @@ function App() {
   const shouldRender = useSelector((state) => state.menu.shouldRender);
   const menuData = useSelector((state) => state.menu.data);
   const errorMessage = useSelector((state) => state.menu.errorMessage);
+  const successMessage = useSelector((state) => state.menu.successMessage);
   // Grab value from context API so we know when to render the modal
   const { isModalActivated } = useCustomHook();
   // The Menu section renders diff content depending on these Redux state valurs in menu.js
-  const [menuSection, setMenuSection] = useState(undefined);
+  const [menuSection, setMenuSection] = useState(4);
   useEffect(() => {
     switch (shouldRender) {
       //# ----------- GET related renders -----------
-      case "greeting":
-        setMenuSection(
-          <h2>Send data to Firebase! Then you can display a Menu</h2>
-        );
+      case "initial": 
+        setMenuSection(<h2>{successMessage}</h2>);
         break;
-      case "GET_pending":
+      case "GET_pending": 
         setMenuSection(<LoadingSpinner />);
         break;
       case "GET_noResults":
-        setMenuSection(
-          <h2>No results found in our servers. Send some up first!</h2>
-        );
+        setMenuSection(<h2>{errorMessage}</h2>);
         break;
-      case "GET_errorMessage":
-        setMenuSection(
-          <h2>Could not retrieve data. Check internet connection</h2>
-        );
+      case "GET_failure": 
+        setMenuSection(<h2>{errorMessage}</h2>);
         break;
-      case "GET_success":
+      case "GET_success": 
         setMenuSection(<MenuList />);
         break;
       //# ----------- PUT related renders -----------
-      case "PUT_success":
-        setMenuSection(<h2>Successfully sent data to Firebase</h2>);
+      case "PUT_success": 
+        setMenuSection(<h2>{successMessage}</h2>);
         break;
-      case "PUT_failure":
+      case "PUT_failure": 
         setMenuSection(<h2>{errorMessage}</h2>);
         break;
       //# ----------- DELETE related renders -----------
       case "DELETE_success":
-        setMenuSection(<h2>Successfully sent data to Firebase</h2>);
+        setMenuSection(<h2>{successMessage}</h2>);
         break;
       case "DELETE_failure":
         setMenuSection(<h2>{errorMessage}</h2>);

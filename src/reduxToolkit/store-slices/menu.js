@@ -2,60 +2,68 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const menuSlice = createSlice({
   name: "menu", // expected built-in KVP
-  initialState: { shouldRender: "greeting", data: null, errorMessage: null },
+  initialState: {
+    shouldRender: "initial",
+    data: null,
+    errorMessage: null,
+    successMessage: "Send data to Firebase! Then you can display a Menu",
+  },
   reducers: {
     //# -------- GET reducer functions ----------
-    clearMenu(state, action) {
-      // Use to render a greeting, telling users to send dta to Firebase
-      state.shouldRender = "greeting";
-      state.data = null;
-      state.errorMessage = null;
-    },
-    pendingMenu(state, action) {
+    GET_pending(state, action) {
       // Use to render a spinner during the pending stage on App.js
-      state.shouldRender = "GET_pending";
+      state.shouldRender = "GET_pending"; 
       state.data = null;
       state.errorMessage = null;
+      state.successMessage = null;
     },
-    successMenu(state, action) {
+    GET_noResults(state, action) {
+      // Use to render a "no results" message on App.js
+      state.shouldRender = "GET_noResults"; 
+      state.data = null;
+      state.errorMessage =
+        "No results found in our servers. Send some up first!";
+      state.successMessage = null;
+    },
+    GET_failure(state, action) {
+      // Use to render an "error" message on App.js
+      state.shouldRender = "GET_failure"; 
+      state.data = null;
+      state.errorMessage = action.payload; 
+      state.successMessage = null;
+    },
+    GET_success(state, action) {
       // Use to render a successful menu on App.js
-      state.shouldRender = "GET_success";
+      state.shouldRender = "GET_success"; 
       state.data = action.payload;
       state.errorMessage = null;
-    },
-    noMenuDataFound(state, action) {
-      // Use to render a "no results" message on App.js
-      state.shouldRender = "GET_noResults";
-      state.data = null;
-      state.errorMessage = null;
-    },
-    failMenu(state, action) {
-      // Use to render an "error" message on App.js
-      state.shouldRender = "GET_errorMessage";
-      state.data = null;
-      state.errorMessage = action.payload;
+      state.successMessage = null;
     },
     //# -------- PUT reducer functions ----------
-    successfulPUT(state, action) {
-      state.shouldRender = "PUT_success";
+    PUT_success(state, action) {
+      state.shouldRender = "PUT_success"; 
       state.data = null;
       state.errorMessage = null;
+      state.successMessage = "Successfully sent data to Firebase";
     },
-    failedPUT(state, action) {
-      state.shouldRender = "PUT_failure";
+    PUT_failure(state, action) {
+      state.shouldRender = "PUT_failure"; 
       state.data = null;
-      state.errorMessage = null;
+      state.errorMessage = "Could not send data to Firebase";
+      state.successMessage = null;
     },
     //# -------- DELETE reducer functions ----------
-    sucessfulDelete(state, action) {
-      state.shouldRender = "DELETE_success";
+    DELETE_success(state, action) {
+      state.shouldRender = "initial"; // go back to how state was on startup
       state.data = null;
       state.errorMessage = null;
+      state.successMessage = "Send data to Firebase! Then you can display a Menu";
     },
-    failedDelete(state, action) {
+    DELETE_failure(state, action) {
       state.shouldRender = "DELETE_failure";
       state.data = null;
       state.errorMessage = "failed to delete data in Firebase";
+      state.successMessage = null;
     },
   },
 });

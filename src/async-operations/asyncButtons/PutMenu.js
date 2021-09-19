@@ -15,12 +15,12 @@ export default function PutMenu() {
       // We only want success/failure message handling for PUT (no pending spinner)
       if (error && status === "completed") {
         console.log("error encountered");
-        await dispatch(menuActions.failedPUT(error));
+        await dispatch(menuActions.PUT_failure(error));
         return;
       }
       if (error === null && status === "completed") {
         console.log("success!");
-        await dispatch(menuActions.successfulPUT());
+        await dispatch(menuActions.PUT_success());
         return;
       }
     }
