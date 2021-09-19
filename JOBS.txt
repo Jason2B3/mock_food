@@ -20,7 +20,13 @@ async-operations/ requestFunctions
 reduxToolkit/store-slices/menu.js
 Menu/ MenuList.js
 
-LESSONS
+NOTES
+
+The Redux Triangle: Store and slices / dispatched actions / useSelect value access
+Identify the 3 triangles in your project
+GetMenu.js dispatches, App.js useSelects, redux store is obvious
+DeleteMenu App.js redux store
+Put Menu App.js redux store
 
 lesson A: useHttp within 1 file
 lesson B: useHttp within 2+ files
@@ -29,3 +35,4 @@ add in the index.js setup portion of Redux toolkit to your notes
 LEFTOVER BUGS
 - PUT   GET     PUT
 - GET success   PUT
+

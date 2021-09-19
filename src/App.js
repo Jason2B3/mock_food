@@ -22,34 +22,43 @@ function App() {
   // The Menu section renders diff content depending on these Redux state valurs in menu.js
   const [menuSection, setMenuSection] = useState(undefined);
   useEffect(() => {
-    //# ----------- GET related renders -----------
-    if (shouldRender === "greeting") {
-      setMenuSection(
-        <h2>Send data to Firebase! Then you can display a Menu</h2>
-      );
-    }
-    if (shouldRender === "spinner") {
-      setMenuSection(<LoadingSpinner />);
-    }
-    if (shouldRender === "GET_noResults") {
-      setMenuSection(
-        <h2>No results found in our servers. Send some up first!</h2>
-      );
-    }
-    if (shouldRender === "GET_errorMessage") {
-      setMenuSection(
-        <h2>Could not retrieve data. Check internet connection</h2>
-      );
-    }
-    if (shouldRender === "menu") {
-      setMenuSection(<MenuList />);
-    }
-    //# ----------- PUT related renders -----------
-    if (shouldRender === "PUT_success") {
-      setMenuSection(<h2>Successfully sent data to Firebase</h2>);
-    }
-    if (shouldRender === "PUT_failure") {
-      setMenuSection(<h2>{errorMessage}</h2>);
+    switch (shouldRender) {
+      //# ----------- GET related renders -----------
+      case "greeting":
+        setMenuSection(
+          <h2>Send data to Firebase! Then you can display a Menu</h2>
+        );
+        break;
+      case "GET_pending":
+        setMenuSection(<LoadingSpinner />);
+        break;
+      case "GET_noResults":
+        setMenuSection(
+          <h2>No results found in our servers. Send some up first!</h2>
+        );
+        break;
+      case "GET_errorMessage":
+        setMenuSection(
+          <h2>Could not retrieve data. Check internet connection</h2>
+        );
+        break;
+      case "GET_success":
+        setMenuSection(<MenuList />);
+        break;
+      //# ----------- PUT related renders -----------
+      case "PUT_success":
+        setMenuSection(<h2>Successfully sent data to Firebase</h2>);
+        break;
+      case "PUT_failure":
+        setMenuSection(<h2>{errorMessage}</h2>);
+        break;
+      //# ----------- DELETE related renders -----------
+      case "DELETE_success":
+        setMenuSection(<h2>Successfully sent data to Firebase</h2>);
+        break;
+      case "DELETE_failure":
+        setMenuSection(<h2>{errorMessage}</h2>);
+        break;
     }
   }, [shouldRender, menuData, errorMessage]);
   return (
