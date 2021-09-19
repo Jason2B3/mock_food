@@ -43,7 +43,6 @@ export default function GetMenu() {
       <button className={styles.btn} onClick={sendRequest}>
         GET existing menu from Firebase
       </button>
-      {/* <p>Current status: {status}</p> */}
     </>
   );
 }

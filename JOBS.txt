@@ -5,22 +5,16 @@ PUT button
 
 
 GET button
-- Should render a loading spinner in the menu section
+- Should render a pending spinner in the menu section
 - On success, show the menu
 - On fail, render an error message
-- If the firebase database is empty, render a message saying so
+- If the firebase database is empty, render a message explaining that
 
 DELETE button
 - Should wipe the Menu if it was previously loaded
-- Run the greeting emssage again
+- Run the greeting message again
 
-
-FILE THAT HAVE ISSUES THAT NEED RESOLVING
-async-operations/ requestFunctions
-reduxToolkit/store-slices/menu.js
-Menu/ MenuList.js
-
-NOTES
+---------------- NOTES -----------------------------
 
 The Redux Triangle: Store and slices / dispatched actions / useSelect value access
 Identify the 3 triangles in your project
@@ -32,7 +26,3 @@ lesson A: useHttp within 1 file
 lesson B: useHttp within 2+ files
 add in the index.js setup portion of Redux toolkit to your notes
 
-LEFTOVER BUGS
-- PUT   GETsuccess     PUT
-- GETsuccess   PUT
-- Getsuccess DELETE

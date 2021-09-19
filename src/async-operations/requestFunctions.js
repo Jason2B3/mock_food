@@ -28,7 +28,6 @@ export async function putMenu() {
 }
 
 export async function getMenu() {
-  console.log("getting menu!");
   const pullData = await fetch(firebaseLink);
   if (!pullData.ok) throw new Error();
   const parsedData = await pullData.json(); // equals null if you fetch nothing

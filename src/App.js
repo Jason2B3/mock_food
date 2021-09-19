@@ -13,46 +13,49 @@ import { useCustomHook } from "./GlobalContext";
 import { useSelector } from "react-redux";
 
 function App() {
-  // Grab info from Redux store's menu.js (will be used for conditional JSX)
+  //% Grab value from context API so we know when to render the modal
+  const { isModalActivated } = useCustomHook();
+
+  //% Grab info from Redux store's menu.js then use it to render conditional JSX
+  const [menuSection, setMenuSection] = useState(undefined);
   const shouldRender = useSelector((state) => state.menu.shouldRender);
   const menuData = useSelector((state) => state.menu.data);
   const errorMessage = useSelector((state) => state.menu.errorMessage);
   const successMessage = useSelector((state) => state.menu.successMessage);
-  // Grab value from context API so we know when to render the modal
-  const { isModalActivated } = useCustomHook();
-  // The Menu section renders diff content depending on these Redux state valurs in menu.js
-  const [menuSection, setMenuSection] = useState(4);
+  const errorH2 = <h2 className={styles.msg}>{errorMessage}</h2>;
+  const successH2 = <h2 className={styles.msg}>{successMessage}</h2>;
+  //% useEffect runs when we update the Redux store by using 1 of 3 buttons
   useEffect(() => {
     switch (shouldRender) {
       //# ----------- GET related renders -----------
-      case "initial": 
-        setMenuSection(<h2>{successMessage}</h2>);
+      case "initial":
+        setMenuSection(successH2);
         break;
-      case "GET_pending": 
+      case "GET_pending":
         setMenuSection(<LoadingSpinner />);
         break;
       case "GET_noResults":
-        setMenuSection(<h2>{errorMessage}</h2>);
+        setMenuSection(errorH2);
         break;
-      case "GET_failure": 
-        setMenuSection(<h2>{errorMessage}</h2>);
+      case "GET_failure":
+        setMenuSection(errorH2);
         break;
-      case "GET_success": 
+      case "GET_success":
         setMenuSection(<MenuList />);
         break;
       //# ----------- PUT related renders -----------
-      case "PUT_success": 
-        setMenuSection(<h2>{successMessage}</h2>);
+      case "PUT_success":
+        setMenuSection(successH2);
         break;
-      case "PUT_failure": 
-        setMenuSection(<h2>{errorMessage}</h2>);
+      case "PUT_failure":
+        setMenuSection(errorH2);
         break;
       //# ----------- DELETE related renders -----------
       case "DELETE_success":
-        setMenuSection(<h2>{successMessage}</h2>);
+        setMenuSection(successH2);
         break;
       case "DELETE_failure":
-        setMenuSection(<h2>{errorMessage}</h2>);
+        setMenuSection(errorH2);
         break;
     }
   }, [shouldRender, menuData, errorMessage]);

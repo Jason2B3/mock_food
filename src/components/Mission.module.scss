@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 50%;
   margin-top: 16vh;
+  border: 5px solid white;
   @include lighterMainColor;
   @include menuMissionBorderRadius;
   h2 {
