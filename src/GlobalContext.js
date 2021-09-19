@@ -13,7 +13,13 @@ function CounterContextProvider(props) {
   const activateModal = () => setModal(() => true);
   const deactivateModal = () => setModal(() => false);
   //# ------------------------------------------------------------
-  const shareThese = { meals, dispatchFn, orderState, isModalActivated, activateModal, deactivateModal };
+  const shareThese = {
+    dispatchFn,
+    orderState,
+    isModalActivated,
+    activateModal,
+    deactivateModal,
+  };
   return (
     <CounterContext.Provider value={shareThese}>
       {props.children}
@@ -22,20 +28,6 @@ function CounterContextProvider(props) {
 }
 export default CounterContextProvider;
 // ---------------------------------------------------------
-const meals = {
-  Sushi: {
-    descrip: "Finest fish and veggies",
-    price: "$30.00",
-  },
-  Schnitzel: {
-    descrip: "A german specialty",
-    price: "$16.50",
-  },
-  "Green Bowl": {
-    descrip: "Healthy...and green...",
-    price: "$28.00",
-  },
-};
 
 const orderReducer = function (state, action) {
   switch (action.type) {
