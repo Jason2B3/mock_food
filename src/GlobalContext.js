@@ -14,8 +14,8 @@ function CounterContextProvider(props) {
   const deactivateModal = () => setModal(() => false);
   //# ------------------------------------------------------------
   const shareThese = {
-    dispatchFn,
-    orderState,
+    // dispatchFn,
+    // orderState,
     isModalActivated,
     activateModal,
     deactivateModal,

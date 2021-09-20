@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./ModalListItem.module.scss";
-import { useCustomHook } from "../../GlobalContext";
-
+import { useDispatch } from "react-redux";
+import { orderActions } from "../../reduxToolkit/store-slices/manageOrder";
 function ModalListItem({ name, cost, qty, aTotal }) {
-  const { dispatchFn } = useCustomHook();
+  const dispatch = useDispatch();
 
-  //% The next 2 handlers call the useReducer function to update the orderState variable
-  const minusHandler = () => dispatchFn({ type: `REMOVE_1`, foodName: name });
-  const plusHandler = () => dispatchFn({ type: `ADD_1`, foodName: name });
+  //% The next 2 handlers update the orderState variable in our Redux store
+  // payload requires the meal name, which we got from ModalFace.js via props
+  const minusHandler = () => dispatch(orderActions.subtractOne({ name }));
+  const plusHandler = () => dispatch(orderActions.addOne({ name }));
   return (
     <div className={styles.container}>
       <section className={styles.details}>

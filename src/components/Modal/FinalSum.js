@@ -14,7 +14,7 @@ function FinalSum({ billTotal }) {
     <div className={styles.container}>
       <p>
         <span>Total Amount: </span>
-        <span>{billTotal}</span>
+        <span>${billTotal}</span>
       </p>
       <div>
         <button onClick={closeHandler}>Close</button>

@@ -8,36 +8,18 @@ const orderSlice = createSlice({
     "Green Bowl": 0,
   },
   reducers: {
-    //! You may be abe to reduce alot of these reducer functions
-    addSushi(state, action) {
-      state["Sushi"] = state["Sushi"]++;
-      state["Schnitzel"] = state["Schnitzel"];
-      state["Green Bowl"] = state["Green Bowl"];
+    addMulti(state, action) {
+      let foodName = action.payload.name;
+      const qty = action.payload.qty;
+      state[foodName] = state[foodName] + qty;
     },
-    removeSushi(state,action){
-      state["Sushi"] = state["Sushi"]--;
-      state["Schnitzel"] = state["Schnitzel"];
-      state["Green Bowl"] = state["Green Bowl"];
+    addOne(state, action) {
+      let foodName = action.payload.name;
+      state[foodName] = state[foodName] + 1;
     },
-    addShnitzel(state,action){
-      state["Sushi"] = state["Sushi"];
-      state["Schnitzel"] = state["Schnitzel"]++;
-      state["Green Bowl"] = state["Green Bowl"];
-    },
-    removeShnitzel(state,action){
-      state["Sushi"] = state["Sushi"];
-      state["Schnitzel"] = state["Schnitzel"]--;
-      state["Green Bowl"] = state["Green Bowl"];
-    },
-    addGreenBowl(state,action){
-      state["Sushi"] = state["Sushi"];
-      state["Schnitzel"] = state["Schnitzel"];
-      state["Green Bowl"] = state["Green Bowl"]++;
-    },
-    removeGreenBowl(state,action){
-      state["Sushi"] = state["Sushi"];
-      state["Schnitzel"] = state["Schnitzel"];
-      state["Green Bowl"] = state["Green Bowl"]--;
+    subtractOne(state, action) {
+      let foodName = action.payload.name;
+      state[foodName] = state[foodName] - 1;
     },
   },
 });

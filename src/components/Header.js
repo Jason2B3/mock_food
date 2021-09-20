@@ -1,18 +1,20 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import { useCustomHook } from "../GlobalContext";
+import { useSelector } from "react-redux";
 
 function Header() {
-  //% Track the number of cart items based on the meal quantities inside orderState
-  //% That's the useReducer state object, which we manage in our Context API file
-  const { orderState, activateModal } = useCustomHook();
+  //% Track order quantity using Redux store's manageOrder.js state object
+  const orderStateObject = useSelector((state) => state.order);
   const precartMealSum = function () {
     let mealsBeforeCart = 0;
-    for (let key in orderState) {
-      mealsBeforeCart = mealsBeforeCart + orderState[key];
+    for (let key in orderStateObject) {
+      mealsBeforeCart = mealsBeforeCart + Number(orderStateObject[key]);
     }
     return mealsBeforeCart;
   };
+  //% Activate Modal by pressing the Cart button
+  const { activateModal } = useCustomHook();
 
   return (
     <section className={styles.navbar}>

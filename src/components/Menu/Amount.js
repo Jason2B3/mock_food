@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Amount.module.scss";
-import { useCustomHook } from "../../GlobalContext";
+import { orderActions } from "../../reduxToolkit/store-slices/manageOrder";
 
 function Amount({ name, descrip, price }) {
-  const { dispatchFn } = useCustomHook();
+  const dispatch = useDispatch();
   //% Make the value of the input field stateful
-  const [qty, setQty] = useState("0");
+  const [qty, setQty] = useState(0);
   const tickHandler = function (e) {
+    console.log(name);
     setQty(e.target.value); // non immediate updating still in effect
   };
 
@@ -14,12 +16,9 @@ function Amount({ name, descrip, price }) {
   const submitHandler = function (e) {
     e.preventDefault();
     if (qty > 0) {
-      dispatchFn({
-        type: `SET_MULTI`,
-        orderSize: qty,
-        foodName: name, // used to select the case in our reducerFN switch statement
-      });
+      dispatch(orderActions.addMulti({ name, qty })); // supply payload to manageOrder.js
     }
+    setQty(""); // clear input field
   };
   return (
     <form className={styles.form}>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./ModalFace.module.scss";
 import ModalListItem from "./ModalListItem";
 import { useCustomHook } from "../../GlobalContext";
+import { useSelector } from "react-redux";
 import FinalSum from "./FinalSum";
 
 const modalFace_helpers_2B3 = {
@@ -15,23 +16,26 @@ const modalFace_helpers_2B3 = {
 };
 
 function ModalFace() {
-  const { orderState, meals } = useCustomHook();
+  // const dispatch = useDispatch();
+  const orderStatus = useSelector((state) => state.order);
+  const mealData = useSelector((state) => state.menu.data);
+  console.log(orderStatus, mealData);
+
   //% Clone the orderState object and exclude all KVP's with value 0
   const currentOrder = {}; // {name:Sushi qty:2}
-  for (let key in orderState) {
-    if (orderState[key] !== 0) currentOrder[key] = orderState[key];
+  for (let key in orderStatus) {
+    if (orderStatus[key] !== 0) currentOrder[key] = orderStatus[key];
   }
-
   //% Prepare data for <ModalListItem>
   const containment = [];
   if (currentOrder.length !== 0) {
     for (let key in currentOrder) {
       // Calc name, cost, qty... then shove it into an object to be used as an entry in containment
-      const name = key;
-      const cost = meals[key].price;
-      const qty = currentOrder[key];
+      const name = key; // "sushi"
+      const cost = mealData[key].price; // "string. Ex. $30.00"
+      const qty = +currentOrder[key]; // number
       const aTotal = modalFace_helpers_2B3.round(
-        currentOrder[key] * Number(meals[key].price.slice(1)),
+        currentOrder[key] * Number(mealData[key].price.slice(1)),
         2
       );
       containment.push({
@@ -42,7 +46,6 @@ function ModalFace() {
       });
     }
   }
-  console.log(containment);
   //% Calculate the sum of all aTotal's inside the containment array
   const billTotal = containment.reduce((acc, currVal) => {
     return acc + currVal.aTotal;
