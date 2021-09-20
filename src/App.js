@@ -8,9 +8,13 @@ import MenuList from "./components/Menu/MenuList";
 import Mission from "./components/Mission";
 import ModalFace from "./components/Modal/ModalFace";
 import LoadingSpinner from "./ui/LoadingSpinner";
+import OrderPage from "./components/page/OrderPage";
+import NotFound from "./ui/NotFound";
 // State Management imports
 import { useCustomHook } from "./GlobalContext";
 import { useSelector } from "react-redux";
+// Router
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   //% Grab value from context API so we know when to render the modal
@@ -60,18 +64,30 @@ function App() {
     }
   }, [shouldRender, menuData, errorMessage]);
   return (
-    <div className={styles.container}>
-      <Header />
-      <img
-        className={styles.img}
-        alt="no IMG found"
-        src="https://i.postimg.cc/g0X9vXbN/food-image.jpg"
-      />
-      <Mission />
-      {menuSection}
-      <AsyncController />
-      {isModalActivated ? <ModalFace /> : ""}
-    </div>
+    <>
+      <Switch>
+        <Route path="/" exact>
+          <div className={styles.container}>
+            <Header />
+            <img
+              className={styles.img}
+              alt="no IMG found"
+              src="https://i.postimg.cc/g0X9vXbN/food-image.jpg"
+            />
+            <Mission />
+            {menuSection}
+            <AsyncController />
+            {isModalActivated ? <ModalFace /> : ""}
+          </div>
+        </Route>
+        <Route path="/confirm-details" exact>
+          <OrderPage />
+        </Route>
+        <Route path="*">
+          <NotFound /> {/*create this component elsewhere*/}
+        </Route>
+      </Switch>
+    </>
   );
 }
 

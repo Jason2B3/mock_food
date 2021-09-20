@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "./FinalSum.module.scss";
 import { useCustomHook } from "../../GlobalContext";
+import { useHistory } from "react-router-dom";
 
 function FinalSum({ billTotal }) {
+  const history = useHistory();
   const { deactivateModal } = useCustomHook();
   const closeHandler = function () {
     deactivateModal();
   };
   const orderHandler = function () {
-    alert("New Features will arrive soon!");
+    history.push("/confirm-details");
   };
   return (
     <div className={styles.container}>

@@ -6,23 +6,23 @@
   $thickSize: 24px;
   padding: $thickSize;
   p {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
     margin-bottom: 8px;
   }
-  div{
-    display:flex;
+  div {
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
   }
-  button{
-    width:18%;
+  button {
+    width: 18%;
     padding: 8px;
     border-radius: 18px;
     margin-left: 16px;
-    margin-top:10px;
+    margin-top: 10px;
     border: 1px solid black;
   }
 }
