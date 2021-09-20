@@ -1,0 +1,16 @@
+PUT button
+- Should send data to firebase (async)
+- On success, render "Successfully sent data to Firebase"
+- On failure, render "Could not send data to Firebase"
+
+
+GET button
+- Should render a pending spinner in the menu section
+- On success, render the menu (example of non-message JSX)
+- On failure, render "Could not retieve meal data"
+- If the firebase database is empty, render "No results found in our servers. Send some up first!"
+
+DELETE button
+- Should wipe the Menu if it was previously loaded
+- Run the on-mount initial message again
+
